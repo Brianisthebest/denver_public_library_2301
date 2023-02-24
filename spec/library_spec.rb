@@ -31,4 +31,20 @@ RSpec.describe Library do
       expect(@library.authors).to eq([])
     end
   end
+
+  describe '#add_author' do
+    it 'adds the author' do
+      @library.add_author(@charlotte_bronte)
+
+      expect(@library.authors).to eq([@charlotte_bronte])
+    end
+
+    it 'can store books written by the author' do
+      @jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+      @villette = @charlotte_bronte.write("Villette", "1853")
+      @library.add_author(@charlotte_bronte)
+
+      expect(@library.books).to eq([@jane_eyre, @villette])
+    end
+  end
 end
