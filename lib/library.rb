@@ -16,7 +16,6 @@ attr_reader :name,
     author&.books.map do |book|
       @books << book
     end
-    @authors
   end
 
   def publication_time_frame_for(author)
@@ -36,7 +35,6 @@ attr_reader :name,
     if @books.include?(book)
       @checked_out_books << book
     end
-    @checked_out_books
   end
 
   def return_book(book)
@@ -44,5 +42,4 @@ attr_reader :name,
       @checked_out_books.delete(book)
     end
   end
-  @checked_out_books
 end
