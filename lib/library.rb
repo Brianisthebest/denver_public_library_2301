@@ -38,4 +38,11 @@ attr_reader :name,
     end
     @checked_out_books
   end
+
+  def return_book(book)
+    if @checked_out_books.include?(book)
+      @checked_out_books.delete(book)
+    end
+  end
+  @checked_out_books
 end
