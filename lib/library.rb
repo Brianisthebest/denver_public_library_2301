@@ -8,6 +8,10 @@ class Library
  end
 
  def add_author(author)
-  
+  @authors << author
+  author&.books.map do |book|
+    @books << book
+  end
+  @authors
  end
 end
