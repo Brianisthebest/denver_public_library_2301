@@ -66,7 +66,7 @@ RSpec.describe Library do
       
       expect(@library.books).to eq([@jane_eyre, @villette])
       @library.check_out(@villette)
-      expect(@libraray.checked_out_books).to eq([@villette])
+      expect(@library.checked_out_books).to eq([@villette])
     end
   end
 end
