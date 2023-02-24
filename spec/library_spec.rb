@@ -69,4 +69,18 @@ RSpec.describe Library do
       expect(@library.checked_out_books).to eq([@villette])
     end
   end
+
+  describe '#return_book' do
+    it 'can return a book and remove from array' do
+      @jane_eyre = @charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+      @villette = @charlotte_bronte.write("Villette", "1853")
+      @library.add_author(@charlotte_bronte)
+      expect(@library.books).to eq([@jane_eyre, @villette])
+      @library.check_out(@villette)
+      expect(@library.checked_out_books).to eq([@villette])
+      @library.return_book(@villette)
+     
+      expect(@library.checked_out_books).to eq([])
+    end
+  end
 end
